@@ -19,6 +19,8 @@
 		5BCFE3E1294CD8E10048B22F /* UIStackView + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BCFE3E0294CD8E10048B22F /* UIStackView + Ext.swift */; };
 		5BCFE3E3294F7C7E0048B22F /* UILabel + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BCFE3E2294F7C7E0048B22F /* UILabel + Ext.swift */; };
 		5BCFE3E5294F80AA0048B22F /* UIFont + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BCFE3E4294F80AA0048B22F /* UIFont + Ext.swift */; };
+		5BCFE3E7294F8B8F0048B22F /* TasksTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BCFE3E6294F8B8F0048B22F /* TasksTableViewCell.swift */; };
+		5BCFE3EA294F92420048B22F /* PressButtonProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BCFE3E9294F92420048B22F /* PressButtonProtocols.swift */; };
 		957B90CE3471ECC5C183971A /* Pods_CalendarMySchedule.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEA38D54FF5E877339EA52EE /* Pods_CalendarMySchedule.framework */; };
 /* End PBXBuildFile section */
 
@@ -38,6 +40,8 @@
 		5BCFE3E0294CD8E10048B22F /* UIStackView + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView + Ext.swift"; sourceTree = "<group>"; };
 		5BCFE3E2294F7C7E0048B22F /* UILabel + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel + Ext.swift"; sourceTree = "<group>"; };
 		5BCFE3E4294F80AA0048B22F /* UIFont + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont + Ext.swift"; sourceTree = "<group>"; };
+		5BCFE3E6294F8B8F0048B22F /* TasksTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksTableViewCell.swift; sourceTree = "<group>"; };
+		5BCFE3E9294F92420048B22F /* PressButtonProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PressButtonProtocols.swift; sourceTree = "<group>"; };
 		C7D01FCBD844B344C711C442 /* Pods-CalendarMySchedule.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CalendarMySchedule.debug.xcconfig"; path = "Target Support Files/Pods-CalendarMySchedule/Pods-CalendarMySchedule.debug.xcconfig"; sourceTree = "<group>"; };
 		CEA38D54FF5E877339EA52EE /* Pods_CalendarMySchedule.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CalendarMySchedule.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -66,6 +70,7 @@
 			isa = PBXGroup;
 			children = (
 				5B546A6E294A4E4700C79613 /* ScheduleTableViewCell.swift */,
+				5BCFE3E6294F8B8F0048B22F /* TasksTableViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -74,6 +79,7 @@
 			isa = PBXGroup;
 			children = (
 				5B5F51B32941DC3A006DD6C1 /* CalendarMySchedule */,
+				5BCFE3E8294F920C0048B22F /* Protocols */,
 				5B5F51B22941DC3A006DD6C1 /* Products */,
 				831893486114BB0E76A93B15 /* Pods */,
 				EA52BA57545967EAE0225DB1 /* Frameworks */,
@@ -146,6 +152,14 @@
 				5BCFE3E4294F80AA0048B22F /* UIFont + Ext.swift */,
 			);
 			path = UIkit;
+			sourceTree = "<group>";
+		};
+		5BCFE3E8294F920C0048B22F /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				5BCFE3E9294F92420048B22F /* PressButtonProtocols.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		831893486114BB0E76A93B15 /* Pods */ = {
@@ -289,6 +303,8 @@
 				5BCFE3E3294F7C7E0048B22F /* UILabel + Ext.swift in Sources */,
 				5B5F51CC2941E0D4006DD6C1 /* ScheduleViewController.swift in Sources */,
 				5B5F51D02941E129006DD6C1 /* ContactsViewController.swift in Sources */,
+				5BCFE3E7294F8B8F0048B22F /* TasksTableViewCell.swift in Sources */,
+				5BCFE3EA294F92420048B22F /* PressButtonProtocols.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -27,13 +27,31 @@ class TasksViewController: UIViewController {
         button.titleLabel?.font = UIFont(name: "Avenir Next DeminBold", size: 14)
         return button
     }()
+    
+    private let tableView: UITableView = {
+        let table = UITableView()
+//        bounces - чтобы таблица не прыгала вверх вниз
+        table.bounces = false
+        table.translatesAutoresizingMaskIntoConstraints = false
+        return table
+    }()
+    
+    private let idTaskCell = "idTaskCell"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
        
+        delegates()
         configure()
         setConstraints()
         swipeAction()
         showHidebutton.addTarget(self, action: #selector(shoeButtonTapped), for: .touchUpInside)
+    }
+    
+    private func delegates(){
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.register(TasksTableViewCell.self, forCellReuseIdentifier: idTaskCell)
     }
     
     @objc func shoeButtonTapped(){
@@ -80,6 +98,35 @@ extension TasksViewController: FSCalendarDelegate, FSCalendarDataSource {
     }
 }
 
+//MARK: - UITableViewDelegate, UITableViewDataSource
+extension TasksViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 3
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: idTaskCell, for: indexPath) as! TasksTableViewCell
+//        Назначаем делегата(PressReadyTaskButtonProtocols)
+        cell.cellTaskDelegate = self
+        cell.index = indexPath
+        return cell
+        
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 80
+    }
+}
+
+//MARK: - PressReadyTaskButtonProtocols
+extension TasksViewController: PressReadyTaskButtonProtocols {
+    func readyButtonTapped(indexPath: IndexPath) {
+        print("tap")
+    }
+    
+    
+}
+
 //MARK: - setConstraints, configure
 extension TasksViewController {
     
@@ -90,6 +137,7 @@ extension TasksViewController {
         
         view.addSubview(calendar)
         view.addSubview(showHidebutton)
+        view.addSubview(tableView)
         
         calendar.delegate = self
         calendar.dataSource = self
@@ -114,6 +162,10 @@ extension TasksViewController {
         showHidebutton.heightAnchor.constraint(equalToConstant: 20),
         showHidebutton.widthAnchor.constraint(equalToConstant: 130),
         
+        tableView.topAnchor.constraint(equalTo: showHidebutton.bottomAnchor, constant: 10),
+        tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
+        tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
+        tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0),
         ])
         
     }

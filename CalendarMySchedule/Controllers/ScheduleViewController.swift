@@ -27,6 +27,7 @@ class ScheduleViewController: UIViewController {
         button.titleLabel?.font = UIFont(name: "Avenir Next DeminBold", size: 14)
         return button
     }()
+    
     private let tableView: UITableView = {
         let table = UITableView()
 //        bounces - чтобы таблица не прыгала вверх вниз
