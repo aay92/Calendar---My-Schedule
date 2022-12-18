@@ -1,0 +1,42 @@
+//
+//  SceneDelegate.swift
+//  CalendarMySchedule
+//
+//  Created by Aleksey Alyonin on 08.12.2022.
+//
+
+import UIKit
+
+class SceneDelegate: UIResponder, UIWindowSceneDelegate {
+
+    var window: UIWindow?
+
+    func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
+        guard let windowsScene = (scene as? UIWindowScene) else { return }
+        window = UIWindow(windowScene: windowsScene)
+        window?.rootViewController = MainTabBarController()
+        window?.makeKeyAndVisible()
+//       только белая тема
+        window?.overrideUserInterfaceStyle = .light
+    }
+
+    func sceneDidDisconnect(_ scene: UIScene) {
+     
+    }
+
+    func sceneDidBecomeActive(_ scene: UIScene) {
+    
+    }
+
+    func sceneWillResignActive(_ scene: UIScene) {
+    }
+
+    func sceneWillEnterForeground(_ scene: UIScene) {
+    }
+
+    func sceneDidEnterBackground(_ scene: UIScene) {
+    }
+
+
+}
+
