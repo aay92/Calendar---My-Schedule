@@ -19,7 +19,7 @@ class ScheduleTableViewCell: UITableViewCell {
     let lessonTime = UILabel(text: "08.00",
                              font: .avenirNext20DemiBold()!)
     
-    let typeLabel = UILabel(text: "Тип:",
+    let typeLabel = UILabel(text: "Type:",
                             font:.avenirNext14()!,
                             alignment: .right)
 
@@ -27,14 +27,14 @@ class ScheduleTableViewCell: UITableViewCell {
                              font:.avenirNext14DemiBold()!,
                              alignment: .left)
 
-    let buildingLabel = UILabel(text: "Корпус",
+    let buildingLabel = UILabel(text: "Building",
                                 font: .avenirNext14()!,
                                 alignment: .right)
 
     let lessonBuilding = UILabel(text: "1",
                                  font: .avenirNext14DemiBold()!)
 
-    let audLabel = UILabel(text: "Аудитория",
+    let audLabel = UILabel(text: "Audience",
                            font: .avenirNext14()!,
                            alignment: .right)
 

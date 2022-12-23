@@ -20,6 +20,7 @@ class TasksTableViewCell: UITableViewCell {
         return btn
     }()
     
+//    Delegate
     weak var cellTaskDelegate: PressReadyTaskButtonProtocols?
     var index: IndexPath?
     

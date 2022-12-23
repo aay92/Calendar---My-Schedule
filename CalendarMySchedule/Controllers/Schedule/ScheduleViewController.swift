@@ -1,5 +1,5 @@
 //
-//  TasksViewController.swift
+//  ScheduleViewController.swift
 //  CalendarMySchedule
 //
 //  Created by Aleksey Alyonin on 08.12.2022.
@@ -8,7 +8,7 @@
 import UIKit
 import FSCalendar
 
-class TasksViewController: UIViewController {
+class ScheduleViewController: UIViewController {
    
     private var calendarHeightConstraints : NSLayoutConstraint!
     
@@ -36,22 +36,20 @@ class TasksViewController: UIViewController {
         return table
     }()
     
-    private let idTaskCell = "idTaskCell"
+    private let idScheduleCell = "idScheduleCell"
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
-        delegates()
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonTab))
         configure()
         setConstraints()
         swipeAction()
         showHidebutton.addTarget(self, action: #selector(shoeButtonTapped), for: .touchUpInside)
     }
     
-    private func delegates(){
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.register(TasksTableViewCell.self, forCellReuseIdentifier: idTaskCell)
+    @objc func addButtonTab(){
+        let scheduleOption = OptionsScheduleTableViewController()
+        navigationController?.pushViewController(scheduleOption, animated: true)
     }
     
     @objc func shoeButtonTapped(){
@@ -86,7 +84,7 @@ class TasksViewController: UIViewController {
     }
 }
 //MARK: - FSCalendarDelegate, FCalendarDataSource
-extension TasksViewController: FSCalendarDelegate, FSCalendarDataSource {
+extension ScheduleViewController: FSCalendarDelegate, FSCalendarDataSource {
     func calendar(_ calendar: FSCalendar, boundingRectWillChange bounds: CGRect, animated: Bool) {
         calendarHeightConstraints.constant = bounds.height
 //        layoutIfNeeded() - плавная анимация
@@ -97,18 +95,21 @@ extension TasksViewController: FSCalendarDelegate, FSCalendarDataSource {
         print(date)
     }
 }
-
 //MARK: - UITableViewDelegate, UITableViewDataSource
-extension TasksViewController: UITableViewDelegate, UITableViewDataSource {
+extension ScheduleViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 3
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: idTaskCell, for: indexPath) as! TasksTableViewCell
-//        Назначаем делегата(PressReadyTaskButtonProtocols)
-        cell.cellTaskDelegate = self
-        cell.index = indexPath
+        let cell = tableView.dequeueReusableCell(withIdentifier: idScheduleCell, for: indexPath) as! ScheduleTableViewCell
+//         Смена цвета ячейки
+        switch indexPath.row {
+        case 0: cell.backgroundColor = .red.withAlphaComponent(0.5)
+        case 1: cell.backgroundColor = .blue.withAlphaComponent(0.5)
+        default:
+            cell.backgroundColor = .white
+        }
         return cell
         
     }
@@ -118,35 +119,30 @@ extension TasksViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
-//MARK: - PressReadyTaskButtonProtocols
-extension TasksViewController: PressReadyTaskButtonProtocols {
-    func readyButtonTapped(indexPath: IndexPath) {
-        print("tap")
-    }
-    
-    
-}
-
 //MARK: - setConstraints, configure
-extension TasksViewController {
+extension ScheduleViewController {
     
     private func configure(){
-    
         view.backgroundColor = .white
-        title = "Tasks"
+        title = "Schedule"
+        
+        delegates()
         
         view.addSubview(calendar)
         view.addSubview(showHidebutton)
         view.addSubview(tableView)
-        
-        calendar.delegate = self
-        calendar.dataSource = self
 
         //        смена размера
         calendar.scope = .week
         calendarHeightConstraints = NSLayoutConstraint(item: calendar, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 300)
         calendar.addConstraint(calendarHeightConstraints)
-
+    }
+    private func delegates(){
+        calendar.delegate = self
+        calendar.dataSource = self
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.register(ScheduleTableViewCell.self, forCellReuseIdentifier: idScheduleCell)
     }
     
    private func setConstraints(){
@@ -170,5 +166,3 @@ extension TasksViewController {
         
     }
 }
-
-
