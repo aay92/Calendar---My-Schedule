@@ -14,6 +14,9 @@
 		5B2033432959902E0015C19D /* PhotoCameraAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2033422959902E0015C19D /* PhotoCameraAlert.swift */; };
 		5B203346295C2BE80015C19D /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 5B203345295C2BE80015C19D /* Realm */; };
 		5B203348295C2BE80015C19D /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 5B203347295C2BE80015C19D /* RealmSwift */; };
+		5B20334B295C2F000015C19D /* ScheduleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B20334A295C2F000015C19D /* ScheduleModel.swift */; };
+		5B20334E295C32170015C19D /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B20334D295C32170015C19D /* RealmManager.swift */; };
+		5B203350295C3B130015C19D /* UIColor + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B20334F295C3B130015C19D /* UIColor + Ext.swift */; };
 		5B546A6F294A4E4700C79613 /* ScheduleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B546A6E294A4E4700C79613 /* ScheduleTableViewCell.swift */; };
 		5B5F51B52941DC3A006DD6C1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5F51B42941DC3A006DD6C1 /* AppDelegate.swift */; };
 		5B5F51B72941DC3A006DD6C1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5F51B62941DC3A006DD6C1 /* SceneDelegate.swift */; };
@@ -49,6 +52,9 @@
 		5B20333E295983190015C19D /* ContactOptionTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactOptionTableViewController.swift; sourceTree = "<group>"; };
 		5B203340295989AA0015C19D /* AlertFriendOrTeacher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertFriendOrTeacher.swift; sourceTree = "<group>"; };
 		5B2033422959902E0015C19D /* PhotoCameraAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCameraAlert.swift; sourceTree = "<group>"; };
+		5B20334A295C2F000015C19D /* ScheduleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleModel.swift; sourceTree = "<group>"; };
+		5B20334D295C32170015C19D /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
+		5B20334F295C3B130015C19D /* UIColor + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor + Ext.swift"; sourceTree = "<group>"; };
 		5B546A6E294A4E4700C79613 /* ScheduleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleTableViewCell.swift; sourceTree = "<group>"; };
 		5B5F51B12941DC3A006DD6C1 /* CalendarMySchedule.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CalendarMySchedule.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B5F51B42941DC3A006DD6C1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -94,13 +100,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		5B546A6C294A4E0C00C79613 /* Model */ = {
+		5B203349295C2EEC0015C19D /* Realm */ = {
 			isa = PBXGroup;
 			children = (
+				5B20334A295C2F000015C19D /* ScheduleModel.swift */,
+			);
+			path = Realm;
+			sourceTree = "<group>";
+		};
+		5B20334C295C31EF0015C19D /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				5B20334D295C32170015C19D /* RealmManager.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		5B546A6C294A4E0C00C79613 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				5B203349295C2EEC0015C19D /* Realm */,
 				5B93F1DA2952213F008F6C6B /* Alert */,
 				5B546A6D294A4E1700C79613 /* Cell */,
 			);
-			path = Model;
+			path = Models;
 			sourceTree = "<group>";
 		};
 		5B546A6D294A4E1700C79613 /* Cell */ = {
@@ -138,10 +161,11 @@
 		5B5F51B32941DC3A006DD6C1 /* CalendarMySchedule */ = {
 			isa = PBXGroup;
 			children = (
-				5BCFE3DE294CD8A90048B22F /* Extensions */,
 				5B5F51C82941DDBE006DD6C1 /* Aplication */,
+				5BCFE3DE294CD8A90048B22F /* Extensions */,
 				5B5F51C92941DDCF006DD6C1 /* Controllers */,
-				5B546A6C294A4E0C00C79613 /* Model */,
+				5B546A6C294A4E0C00C79613 /* Models */,
+				5B20334C295C31EF0015C19D /* Services */,
 				5B5F51CA2941DDDD006DD6C1 /* Resources */,
 			);
 			path = CalendarMySchedule;
@@ -258,6 +282,7 @@
 				5BCFE3E2294F7C7E0048B22F /* UILabel + Ext.swift */,
 				5BCFE3E4294F80AA0048B22F /* UIFont + Ext.swift */,
 				5B93F1E529530955008F6C6B /* UIAlertController + Ext.swift */,
+				5B20334F295C3B130015C19D /* UIColor + Ext.swift */,
 			);
 			path = UIkit;
 			sourceTree = "<group>";
@@ -409,6 +434,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5B93F1DC2952215E008F6C6B /* AlertDate.swift in Sources */,
+				5B203350295C3B130015C19D /* UIColor + Ext.swift in Sources */,
 				5B5F51B92941DC3A006DD6C1 /* MainTabBarController.swift in Sources */,
 				5B546A6F294A4E4700C79613 /* ScheduleTableViewCell.swift in Sources */,
 				5B93F1E029530044008F6C6B /* AlertCellName.swift in Sources */,
@@ -425,7 +451,9 @@
 				5B20333D29597BF50015C19D /* ContactsTableViewCell.swift in Sources */,
 				5BCFE3E3294F7C7E0048B22F /* UILabel + Ext.swift in Sources */,
 				5B5F51CC2941E0D4006DD6C1 /* ScheduleViewController.swift in Sources */,
+				5B20334E295C32170015C19D /* RealmManager.swift in Sources */,
 				5B93F1D929504BBA008F6C6B /* HeaderOptionsTableViewCell.swift in Sources */,
+				5B20334B295C2F000015C19D /* ScheduleModel.swift in Sources */,
 				5BCFE3E7294F8B8F0048B22F /* TasksTableViewCell.swift in Sources */,
 				5B20333B29597AA10015C19D /* ContactsTableViewController.swift in Sources */,
 				5B2033432959902E0015C19D /* PhotoCameraAlert.swift in Sources */,

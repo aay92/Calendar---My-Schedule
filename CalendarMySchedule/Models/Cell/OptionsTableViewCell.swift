@@ -33,6 +33,8 @@ class OptionsTableViewCell: UITableViewCell {
         repeatSwitch.translatesAutoresizingMaskIntoConstraints = false
         return repeatSwitch
     }()
+//    SwitchRepeatProtocols - протокол свича
+    weak var switchRepeatDelegate: SwitchRepeatProtocols?
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -83,11 +85,7 @@ class OptionsTableViewCell: UITableViewCell {
     }
     
     @objc func switchChange(paramTarget: UISwitch){
-        if paramTarget.isOn {
-            print("ON")
-        } else {
-            print("OFF")
-        }
+        switchRepeatDelegate?.switchRepeat(value: paramTarget.isOn)
     }
     private func setConstraints(){
         self.addSubview(backgroundViewCell)

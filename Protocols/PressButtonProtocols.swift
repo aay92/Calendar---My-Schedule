@@ -7,6 +7,10 @@
 
 import Foundation
 
-protocol PressReadyTaskButtonProtocols: class {
+protocol PressReadyTaskButtonProtocols: AnyObject {
     func readyButtonTapped(indexPath: IndexPath)
+}
+
+protocol SwitchRepeatProtocols: AnyObject {
+    func switchRepeat(value: Bool)
 }
