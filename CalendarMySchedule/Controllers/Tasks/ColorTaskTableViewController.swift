@@ -58,7 +58,7 @@ class ColorTaskTableViewController: UITableViewController {
         }
         
         override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-                print("Tap error(default) OptionsScheduleTableViewController")
+                print("Tap error(default) ScheduleOptionsTableViewController")
             
         }
         

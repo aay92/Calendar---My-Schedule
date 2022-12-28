@@ -1,5 +1,5 @@
 //
-//  OptionsScheduleTableViewCell.swift
+//  OptionsTableViewCell.swift
 //  CalendarMySchedule
 //
 //  Created by Aleksey Alyonin on 19.12.2022.
@@ -7,14 +7,15 @@
 
 import UIKit
 
-class OptionsScheduleTableViewCell: UITableViewCell {
+class OptionsTableViewCell: UITableViewCell {
 
-    let backgroundViewCell: UIView = {
-        let view = UIView()
-        view.backgroundColor = .white
-        view.layer.cornerRadius = 10
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
+    let backgroundViewCell: UIImageView = {
+        let image = UIImageView()
+        image.backgroundColor = .white
+        image.contentMode = .scaleAspectFit
+        image.layer.cornerRadius = 10
+        image.translatesAutoresizingMaskIntoConstraints = false
+        return image
     }()
 
     let nameCellLabel: UILabel = {
@@ -33,12 +34,6 @@ class OptionsScheduleTableViewCell: UITableViewCell {
         return repeatSwitch
     }()
     
-    let cellNameArray = [["Date","Time"],
-                         ["Name", "Type", "Building", "Audience"],
-                         ["Tether Name"],
-                         ["",""],
-                         ["Repeat every 7 days"]]
-    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
             setConstraints()
@@ -54,9 +49,9 @@ class OptionsScheduleTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func cellCofigure(indexPath: IndexPath){
+    func cellScheduleCofigure(nameArray: [[String]], indexPath: IndexPath){
         //        section - массив( ["Date","Time"] ), row - ячейки( "Date","Time" )
-        nameCellLabel.text = cellNameArray[indexPath.section][indexPath.row]
+        nameCellLabel.text = nameArray[indexPath.section][indexPath.row]
         
         //        Менякм цвет ячкйки - Сolor ([3,0] - расположение ячеки)
         if indexPath == [3,0] {
@@ -67,6 +62,24 @@ class OptionsScheduleTableViewCell: UITableViewCell {
         if indexPath == [4,0] {
             repeatSwitch.isHidden = false
         }
+    }
+    
+    func cellTasksCofigure(nameArray: [String], indexPath: IndexPath){
+        //        section - массив( ["Date","Time"] ), row - ячейки( "Date","Time" )
+        nameCellLabel.text = nameArray[indexPath.section]
+        
+        //        Менякм цвет ячкйки - Сolor ([3,0] - расположение ячеки)
+        if indexPath == [3,0] {
+            backgroundViewCell.backgroundColor = #colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1)
+        }
+    }
+    
+    
+    func cellContactCofigure(nameArray: [String], indexPath: IndexPath){
+        //        section - массив( ["Date","Time"] ), row - ячейки( "Date","Time" )
+        nameCellLabel.text = nameArray[indexPath.section]
+        
+        indexPath.section == 4 ? backgroundViewCell.image = UIImage(systemName: "person.fill.badge.plus") : nil
     }
     
     @objc func switchChange(paramTarget: UISwitch){

@@ -1,5 +1,5 @@
 //
-//  OptionsScheduleTableViewController.swift
+//  ScheduleOptionsTableViewController.swift
 //  CalendarMySchedule
 //
 //  Created by Aleksey Alyonin on 19.12.2022.
@@ -7,11 +7,17 @@
 
 import UIKit
 
-class OptionsScheduleTableViewController: UITableViewController {
+class ScheduleOptionsTableViewController: UITableViewController {
   
-    let idOptionsScheduleCell = "OptionsScheduleTableViewCell"
+    let idOptionsScheduleCell = "OptionsTableViewCell"
     let idOptionsScheduleHeader = "idOptionsScheduleHeader"
     let headerNameArray = ["Date and time","Lesson","Teacher","Color","Period"]
+    
+    let cellNameArray = [["Date","Time"],
+                         ["Name", "Type", "Building", "Audience"],
+                         ["Tether Name"],
+                         ["",""],
+                         ["Repeat every 7 days"]]
 
         
     override func viewDidLoad() {
@@ -25,7 +31,7 @@ class OptionsScheduleTableViewController: UITableViewController {
         tableView.bounces = false
         
         tableView.register(HeaderOptionsTableViewCell.self, forHeaderFooterViewReuseIdentifier: idOptionsScheduleHeader)
-        tableView.register(OptionsScheduleTableViewCell.self, forCellReuseIdentifier: idOptionsScheduleCell)
+        tableView.register(OptionsTableViewCell.self, forCellReuseIdentifier: idOptionsScheduleCell)
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -43,8 +49,8 @@ class OptionsScheduleTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: idOptionsScheduleCell, for: indexPath) as! OptionsScheduleTableViewCell
-        cell.cellCofigure(indexPath: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: idOptionsScheduleCell, for: indexPath) as! OptionsTableViewCell
+        cell.cellScheduleCofigure(nameArray: cellNameArray, indexPath: indexPath)
         return cell
     }
     
@@ -63,7 +69,7 @@ class OptionsScheduleTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let cell = tableView.cellForRow(at: indexPath) as! OptionsScheduleTableViewCell
+        let cell = tableView.cellForRow(at: indexPath) as! OptionsTableViewCell
         
         switch indexPath{
             
@@ -86,7 +92,7 @@ class OptionsScheduleTableViewController: UITableViewController {
         case [2,0]: pushControllers(vc: TeachersViewController())
         case [3,0]: pushControllers(vc: ScheduleColorViewController())
         default:
-            print("Tap error(default) OptionsScheduleTableViewController")
+            print("Tap error(default) ScheduleOptionsTableViewController")
         }
     }
     

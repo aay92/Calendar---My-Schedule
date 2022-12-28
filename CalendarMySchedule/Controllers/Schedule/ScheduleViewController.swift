@@ -45,14 +45,16 @@ class ScheduleViewController: UIViewController {
         setConstraints()
         swipeAction()
         showHidebutton.addTarget(self, action: #selector(shoeButtonTapped), for: .touchUpInside)
+        
+        navigationController?.tabBarController?.tabBar.scrollEdgeAppearance = navigationController?.tabBarController?.tabBar.standardAppearance
     }
     
-    @objc func addButtonTab(){
-        let scheduleOption = OptionsScheduleTableViewController()
+    @objc private func addButtonTab(){
+        let scheduleOption = ScheduleOptionsTableViewController()
         navigationController?.pushViewController(scheduleOption, animated: true)
     }
     
-    @objc func shoeButtonTapped(){
+    @objc private func shoeButtonTapped(){
         if calendar.scope == .week {
             calendar.setScope(.month, animated: true)
             showHidebutton.setTitle("Close calendar", for: .normal)

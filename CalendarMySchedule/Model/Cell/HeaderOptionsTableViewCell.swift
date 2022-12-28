@@ -23,7 +23,7 @@ class HeaderOptionsTableViewCell: UITableViewHeaderFooterView {
         fatalError("init(coder:) has not been implemented")
     }
     func headerConfigure(nameArray: [String], section: Int){
-        headerLabel.text = nameArray[section]
+        headerLabel.text = nameArray[section].uppercased()
     }
     private func setConstraints(){
         self.addSubview(headerLabel)

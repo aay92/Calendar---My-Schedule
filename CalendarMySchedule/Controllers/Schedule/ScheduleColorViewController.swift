@@ -8,13 +8,12 @@
 import UIKit
 
 class ScheduleColorViewController: UITableViewController {
-        
-        let idOptionsColorCell = "idOptionsColorCell"
-        let idOptionsScheduleHeader = "idOptionsScheduleHeader"
     
-        let headerNameArray = ["RED","ORANGE","YELLOW","GREEN","BLUE","DEEP BLUE", "PURPLE"]
-
-            
+    private let idOptionsColorCell = "idOptionsColorCell"
+    private let idOptionsScheduleHeader = "idOptionsScheduleHeader"
+    private let headerNameArray = ["RED","ORANGE","YELLOW","GREEN","BLUE","DEEP BLUE", "PURPLE"]
+    
+    
         override func viewDidLoad() {
             super.viewDidLoad()
             title = "Color Schedule"
@@ -58,7 +57,7 @@ class ScheduleColorViewController: UITableViewController {
         }
         
         override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-                print("Tap error(default) OptionsScheduleTableViewController")
+                print("Tap error(default) ScheduleOptionsTableViewController")
             
         }
         

@@ -11,7 +11,6 @@ class MainTabBarController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setupTabBar()
     }
     
@@ -26,7 +25,7 @@ class MainTabBarController: UITabBarController {
         
         let tasksViewController = createNavController(vc: TasksViewController(), itemName: "Tasks", itemImage: "text.badge.checkmark")
 
-        let contactViewController = createNavController(vc: ContactsViewController(), itemName: "Contacts", itemImage: "rectangle.stack.person.crop")
+        let contactViewController = createNavController(vc: ContactsTableViewController(), itemName: "Contacts", itemImage: "rectangle.stack.person.crop")
 
         viewControllers = [scheduleViewController, tasksViewController, contactViewController]
 
@@ -42,7 +41,7 @@ class MainTabBarController: UITabBarController {
         let navController = UINavigationController(rootViewController: vc)
         navController.tabBarItem = item
 
-        
+        navController.navigationBar.scrollEdgeAppearance = navController.navigationBar.standardAppearance
         return navController
     }
 
